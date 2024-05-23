@@ -10,3 +10,4 @@ requests
 scikit-learn
 pandas
 langchain_text_splitters
+beautifulsoup4
