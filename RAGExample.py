@@ -69,9 +69,13 @@ if openai_api_key.startswith('sk-'):
                vectorStore = create_vector_store(docs)
                chain=create_chain(vectorStore)
                response = chain.invoke({"input":user_question})
-               st.write(response)
-   else:
-       st.error("Please enter  URL and the query.")
+               if 'answer' in response:
+                   st.write("### Answer")
+                   st.write(response['answer'])
+               else:
+                   st.write("Unexpected response format:", response)
+       else:
+           st.error("Please enter  URL and the query.")
 
      
      
