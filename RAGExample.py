@@ -52,9 +52,8 @@ def create_chain(vectorStore):
     print(prompt)
     document_chain = create_stuff_documents_chain(llm=model,prompt=prompt)
     # Retrieving the top 1 relevant document from the vector store , We can change k to 2 and get top 2 and so on
-    retriever = vectorStore.as_retriever(search_kwargs={"k": 1})
+    retriever = vectorStore.as_retriever(search_kwargs={"k": 3})
     retrieval_chain = create_retrieval_chain(retriever, document_chain)
-    st.write(retrieval_chain)
     return retrieval_chain
 
 st.title("Simple Search Using RAG")
