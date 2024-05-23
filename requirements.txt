@@ -8,3 +8,5 @@ langchain_community
 langchain.text_splitter
 langchain.chains
 requests
+scikit-learn
+pandas
