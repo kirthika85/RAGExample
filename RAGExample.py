@@ -22,7 +22,7 @@ from langchain.chains import create_retrieval_chain
 
 # Retrieve Data from the webpage
 def get_docs(weburl):
-    loader = WebBaseLoader('{weburl}')
+    loader = WebBaseLoader(weburl)
     docs = loader.load()
   
     # WE need to split the web page data
@@ -67,8 +67,8 @@ if openai_api_key.startswith('sk-'):
            docs=get_docs(url)
            vectorStore = create_vector_store(docs)
            chain=create_chain(vectorStore)
-           response = chain.invoke({"input":{user_question}})
-           st.write(response) 
+           response = chain.invoke({"input":user_question})
+           st.write(response['output'])
    else:
        st.error("Please enter  URL and the query.")
 
