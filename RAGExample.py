@@ -69,7 +69,7 @@ if openai_api_key.startswith('sk-'):
                vectorStore = create_vector_store(docs)
                chain=create_chain(vectorStore)
                response = chain.invoke({"input":user_question})
-               st.write(response['output'])
+               st.write(response)
    else:
        st.error("Please enter  URL and the query.")
 
