@@ -5,7 +5,8 @@ langchain-openai
 faiss-cpu
 langchain_core
 langchain_community
-langchain.chains
+langchain_chains
 requests
 scikit-learn
 pandas
+langchain_text_splitters
