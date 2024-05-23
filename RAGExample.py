@@ -62,13 +62,12 @@ if openai_api_key.startswith('sk-'):
    url=st.text_area("Enter the URL to search:")
    user_question=st.text_input("Enter your question: ")
    if url and user_question:
-      with
-   st.spinner('Processing...'):
-       docs=get_docs(url)
-       vectorStore = create_vector_store(docs)
-       chain=create_chain(vectorStore)
-       response = chain.invoke({"input":{user_question}})
-       st.write(response) 
+      with st.spinner('Processing...'):
+           docs=get_docs(url)
+           vectorStore = create_vector_store(docs)
+           chain=create_chain(vectorStore)
+           response = chain.invoke({"input":{user_question}})
+           st.write(response) 
    else:
        st.error("Please enter  URL and the query.")
 
