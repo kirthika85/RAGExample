@@ -39,7 +39,6 @@ def get_docs(weburl):
 def create_vector_store(docs):
     embedding = OpenAIEmbeddings(api_key=openai_api_key)
     vectorStore = FAISS.from_documents(docs, embedding=embedding)
-    st.write(vectorStore)
     return vectorStore
 
 # Create cahin for execution
