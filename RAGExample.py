@@ -42,7 +42,7 @@ def create_vector_store(docs):
 
 # Create cahin for execution
 def create_chain(vectorStore):
-    model = ChatOpenAI(api_key=openaikey,temperature=0.4,model='gpt-3.5-turbo-1106')
+    model = ChatOpenAI(api_key=openai_api_key,temperature=0.4,model='gpt-3.5-turbo-1106')
     prompt = ChatPromptTemplate.from_template("""
              Answer the user's question.
              Context: {context}
