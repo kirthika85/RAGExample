@@ -28,8 +28,8 @@ def get_docs(weburl):
     # WE need to split the web page data
     # We create chunks of 200 and overlap so no data is missed out
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=300,
-        chunk_overlap=20
+        chunk_size=100,
+        chunk_overlap=10
     )
     splitDocs = text_splitter.split_documents(docs)
     st.write(splitDocs)
