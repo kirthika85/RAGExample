@@ -56,7 +56,7 @@ def create_chain(vectorStore):
     return retrieval_chain
 
 st.title("Simple Search Using RAG")
-openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
+openai_api_key=st.sidebar.text_input('OpenAI API Key', type='password')
 if not openai_api_key.startswith('sk-'):
    st.warning('Please enter your OpenAI API key!', icon='⚠')
 if openai_api_key.startswith('sk-'):
