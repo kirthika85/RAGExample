@@ -32,12 +32,14 @@ def get_docs(weburl):
         chunk_overlap=20
     )
     splitDocs = text_splitter.split_documents(docs)
+    st.write(splitDocs)
     return splitDocs
   
 # Create Embeddings and Vector database
 def create_vector_store(docs):
     embedding = OpenAIEmbeddings(api_key=openai_api_key)
     vectorStore = FAISS.from_documents(docs, embedding=embedding)
+    st.write(vectorStore)
     return vectorStore
 
 # Create cahin for execution
@@ -53,6 +55,7 @@ def create_chain(vectorStore):
     # Retrieving the top 1 relevant document from the vector store , We can change k to 2 and get top 2 and so on
     retriever = vectorStore.as_retriever(search_kwargs={"k": 1})
     retrieval_chain = create_retrieval_chain(retriever, document_chain)
+    st.write(retrieval_chain)
     return retrieval_chain
 
 st.title("Simple Search Using RAG")
