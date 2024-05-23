@@ -64,12 +64,12 @@ if openai_api_key.startswith('sk-'):
    user_question=st.text_input("Enter your question: ")
    if st.button("Query Doc"):
        if url and user_question:
-       with st.spinner('Processing...'):
-           docs=get_docs(url)
-           vectorStore = create_vector_store(docs)
-           chain=create_chain(vectorStore)
-           response = chain.invoke({"input":user_question})
-           st.write(response['output'])
+           with st.spinner('Processing...'):
+               docs=get_docs(url)
+               vectorStore = create_vector_store(docs)
+               chain=create_chain(vectorStore)
+               response = chain.invoke({"input":user_question})
+               st.write(response['output'])
    else:
        st.error("Please enter  URL and the query.")
 
